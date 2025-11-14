@@ -8,6 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
+import categoryIndustrial from "@/assets/category-industrial.png";
+import categoryBuilding from "@/assets/category-building.png";
+import categoryDetergents from "@/assets/category-detergents.jpg";
 
 const Home = () => {
   const { toast } = useToast();
@@ -133,11 +136,18 @@ const Home = () => {
       <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-12 text-center text-3xl font-bold">Категории продукции</h2>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Link to="/category/stroitelnye-pokrytiya">
-              <Card className="group h-full cursor-pointer transition-shadow hover:shadow-lg">
+              <Card className="group h-full cursor-pointer overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={categoryBuilding} 
+                    alt="Строительные покрытия" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl group-hover:text-primary">Строительные покрытия</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary">Строительные покрытия</CardTitle>
                   <CardDescription>
                     ЛКМ для стен, полов, фасадов. Износостойкие эмали, грунты, специальные составы.
                   </CardDescription>
@@ -151,12 +161,43 @@ const Home = () => {
               </Card>
             </Link>
 
-            <Link to="/category/klei">
-              <Card className="group h-full cursor-pointer transition-shadow hover:shadow-lg">
+            <Link to="/category/industrialnye-pokrytiya">
+              <Card className="group h-full cursor-pointer overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={categoryIndustrial} 
+                    alt="Индустриальные покрытия" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl group-hover:text-primary">Клеи и материалы</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary">Индустриальные покрытия</CardTitle>
                   <CardDescription>
-                    Клеи для напольных покрытий, труб, универсальные составы для различных материалов.
+                    Виброшумоизоляция, огнезащитные составы, покрытия для промышленного оборудования.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="ghost" className="group-hover:text-primary">
+                    Смотреть продукты
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/category/moyuschie-sredstva">
+              <Card className="group h-full cursor-pointer overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={categoryDetergents} 
+                    alt="Моющие средства" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl group-hover:text-primary">Моющие средства</CardTitle>
+                  <CardDescription>
+                    Синтетические СОЖ, универсальные моющие средства для производства.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -177,37 +218,79 @@ const Home = () => {
           <h2 className="mb-12 text-center text-3xl font-bold">Мне нужно...</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link to="/use-case/klei-pvh-trub">
-              <Card className="group cursor-pointer transition-shadow hover:shadow-md">
+              <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={categoryBuilding} 
+                    alt="Клей для ПВХ труб" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-lg group-hover:text-primary">Клей для ПВХ труб</CardTitle>
                 </CardHeader>
               </Card>
             </Link>
             <Link to="/use-case/kraska-otsinkovannoj-stali">
-              <Card className="group cursor-pointer transition-shadow hover:shadow-md">
+              <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={categoryIndustrial} 
+                    alt="Краска для оцинковки" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-lg group-hover:text-primary">Краска для оцинковки</CardTitle>
                 </CardHeader>
               </Card>
             </Link>
             <Link to="/use-case/grunt-po-rzhavchine">
-              <Card className="group cursor-pointer transition-shadow hover:shadow-md">
+              <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={categoryIndustrial} 
+                    alt="Грунт по ржавчине" 
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-lg group-hover:text-primary">Грунт по ржавчине</CardTitle>
                 </CardHeader>
               </Card>
             </Link>
-            <Card className="cursor-pointer transition-shadow hover:shadow-md">
+            <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+              <div className="aspect-[16/9] overflow-hidden">
+                <img 
+                  src={categoryBuilding} 
+                  alt="Гидроизоляция для фундамента" 
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="text-lg">Гидроизоляция для фундамента</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="cursor-pointer transition-shadow hover:shadow-md">
+            <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+              <div className="aspect-[16/9] overflow-hidden">
+                <img 
+                  src={categoryBuilding} 
+                  alt="Краска для бетонного пола" 
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="text-lg">Краска для бетонного пола</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="cursor-pointer transition-shadow hover:shadow-md">
+            <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
+              <div className="aspect-[16/9] overflow-hidden">
+                <img 
+                  src={categoryIndustrial} 
+                  alt="Эмаль для металлоконструкций" 
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="text-lg">Эмаль для металлоконструкций</CardTitle>
               </CardHeader>
