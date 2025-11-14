@@ -212,18 +212,18 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Мне нужно (интенты) */}
+      {/* Продукция по типу применения */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold">Мне нужно...</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold">Продукция по типу применения</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link to="/use-case/klei-pvh-trub">
               <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-                <div className="aspect-[16/9] overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                   <img 
                     src={categoryBuilding} 
                     alt="Клей для ПВХ труб" 
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    className="h-full w-auto object-contain transition-transform group-hover:scale-105"
                   />
                 </div>
                 <CardHeader>
@@ -233,11 +233,11 @@ const Home = () => {
             </Link>
             <Link to="/use-case/kraska-otsinkovannoj-stali">
               <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-                <div className="aspect-[16/9] overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                   <img 
                     src={categoryIndustrial} 
                     alt="Краска для оцинковки" 
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    className="h-full w-auto object-contain transition-transform group-hover:scale-105"
                   />
                 </div>
                 <CardHeader>
@@ -247,11 +247,11 @@ const Home = () => {
             </Link>
             <Link to="/use-case/grunt-po-rzhavchine">
               <Card className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-                <div className="aspect-[16/9] overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                   <img 
                     src={categoryIndustrial} 
                     alt="Грунт по ржавчине" 
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    className="h-full w-auto object-contain transition-transform group-hover:scale-105"
                   />
                 </div>
                 <CardHeader>
@@ -260,11 +260,11 @@ const Home = () => {
               </Card>
             </Link>
             <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-              <div className="aspect-[16/9] overflow-hidden">
+              <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                 <img 
                   src={categoryBuilding} 
                   alt="Гидроизоляция для фундамента" 
-                  className="h-full w-full object-cover"
+                  className="h-full w-auto object-contain"
                 />
               </div>
               <CardHeader>
@@ -272,11 +272,11 @@ const Home = () => {
               </CardHeader>
             </Card>
             <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-              <div className="aspect-[16/9] overflow-hidden">
+              <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                 <img 
                   src={categoryBuilding} 
                   alt="Краска для бетонного пола" 
-                  className="h-full w-full object-cover"
+                  className="h-full w-auto object-contain"
                 />
               </div>
               <CardHeader>
@@ -284,11 +284,11 @@ const Home = () => {
               </CardHeader>
             </Card>
             <Card className="cursor-pointer overflow-hidden transition-shadow hover:shadow-md">
-              <div className="aspect-[16/9] overflow-hidden">
+              <div className="aspect-[16/9] overflow-hidden bg-muted flex items-center justify-center">
                 <img 
                   src={categoryIndustrial} 
                   alt="Эмаль для металлоконструкций" 
-                  className="h-full w-full object-cover"
+                  className="h-full w-auto object-contain"
                 />
               </div>
               <CardHeader>
