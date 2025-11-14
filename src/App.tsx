@@ -21,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/lik-industrial-solutions">
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
