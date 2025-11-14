@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Завод ЛИК - Промышленные покрытия и клеи
 
 ## Project info
 
