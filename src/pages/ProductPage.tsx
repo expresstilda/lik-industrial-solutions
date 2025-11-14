@@ -5,15 +5,47 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import categoryBuilding from "@/assets/category-building.png";
 
 const ProductPage = () => {
   const [activeTab, setActiveTab] = useState("description");
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const productImages = [categoryBuilding, categoryBuilding, categoryBuilding];
 
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
+            {/* Галерея изображений */}
+            <div className="mb-6">
+              <div className="mb-4 overflow-hidden rounded-lg bg-muted">
+                <img
+                  src={productImages[selectedImage]}
+                  alt="Клей акриловый ЛИКстронг УМ-7"
+                  className="h-[400px] w-full object-contain p-8"
+                />
+              </div>
+              <div className="flex gap-2">
+                {productImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`overflow-hidden rounded-lg border-2 transition-all ${
+                      selectedImage === index ? "border-primary" : "border-transparent"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Превью ${index + 1}`}
+                      className="h-20 w-20 object-contain bg-muted p-2"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="mb-6">
               <h1 className="mb-4 text-4xl font-bold">Клей акриловый «ЛИКстронг УМ-7»</h1>
               <p className="text-lg text-muted-foreground">

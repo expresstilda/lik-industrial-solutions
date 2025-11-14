@@ -3,55 +3,65 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import vibroLik from "@/assets/products/vibro-lik.png";
+import vibroTeploLik from "@/assets/products/vibro-teplo-lik.png";
+import sozhLik from "@/assets/products/sozh-lik.png";
+import categoryBuilding from "@/assets/category-building.png";
 
 const products = [
   {
+    id: "vibro-lik",
+    name: "Виброшумоизоляционный состав «LIK»",
+    slug: "vibro-lik",
+    description: "Акриловая виброшумоизоляция для защиты поверхностей",
+    features: ["Без растворителей", "Готовый к применению", "Высокая адгезия"],
+    consumption: "2-3 кг/м²",
+    image: vibroLik,
+  },
+  {
+    id: "vibro-teplo-lik",
+    name: "Виброшумотеплоизоляционный состав «LIK»",
+    slug: "vibro-teplo-lik",
+    description: "Комплексная защита с теплоизоляцией",
+    features: ["Теплоизоляция", "Шумоизоляция", "Вибропоглощение"],
+    consumption: "2-3 кг/м²",
+    image: vibroTeploLik,
+  },
+  {
+    id: "grunt-glubokogo",
+    name: "Грунт Глубокого проникновения",
+    slug: "grunt-glubokogo",
+    description: "Для грунтования бетонных и оштукатуренных поверхностей",
+    features: ["Глубокое проникновение", "Укрепление основания", "Быстрое высыхание"],
+    consumption: "100-200 г/м²",
+    image: categoryBuilding,
+  },
+  {
     id: "likstrong-um-7",
-    name: "Клей акриловый ЛИКстронг УМ-7",
+    name: "Клей акриловый «ЛИКстронг УМ-7»",
     slug: "likstrong-um-7",
     description: "Акриловый клей на водной основе для гибких напольных покрытий",
     features: ["Без растворителей", "Морозостойкий", "Высокая прочность"],
     consumption: "300-400 г/м²",
+    image: categoryBuilding,
   },
   {
-    id: "emal-pf-115",
-    name: "Эмаль ПФ-115",
-    slug: "emal-pf-115",
-    description: "Универсальная алкидная эмаль для наружных и внутренних работ",
-    features: ["Атмосферостойкая", "Глянцевое покрытие", "Широкая цветовая гамма"],
-    consumption: "100-180 г/м²",
+    id: "likoffire-wood",
+    name: "Огнебиозащитный состав «LIKOFFire Wood»",
+    slug: "likoffire-wood",
+    description: "Водный раствор для огнебиозащиты деревянных конструкций",
+    features: ["Огнезащита", "Биозащита", "Экологичный"],
+    consumption: "250-400 г/м²",
+    image: categoryBuilding,
   },
   {
-    id: "grunt-gf-021",
-    name: "Грунт ГФ-021",
-    slug: "grunt-gf-021",
-    description: "Антикоррозионный грунт для металлических поверхностей",
-    features: ["Защита от коррозии", "Отличная адгезия", "Быстрое высыхание"],
-    consumption: "60-100 г/м²",
-  },
-  {
-    id: "kraska-akrilovaya-fasad",
-    name: "Краска акриловая фасадная",
-    slug: "kraska-akrilovaya-fasad",
-    description: "Водно-дисперсионная краска для наружных работ",
-    features: ["Атмосферостойкая", "Паропроницаемая", "Стойкость к УФ"],
-    consumption: "150-200 г/м²",
-  },
-  {
-    id: "emal-ep-773",
-    name: "Эмаль ЭП-773",
-    slug: "emal-ep-773",
-    description: "Эпоксидная эмаль для защиты металла и бетона",
-    features: ["Химстойкая", "Износостойкая", "Двухкомпонентная"],
-    consumption: "150-250 г/м²",
-  },
-  {
-    id: "kraska-dlya-polov",
-    name: "Краска для бетонных полов",
-    slug: "kraska-dlya-polov",
-    description: "Износостойкое покрытие для промышленных полов",
-    features: ["Высокая износостойкость", "Стойкость к нагрузкам", "Быстрое отверждение"],
-    consumption: "200-300 г/м²",
+    id: "umtzp-lik",
+    name: "УМТЗП «LIK»",
+    slug: "umtzp-lik",
+    description: "Универсальное многоцелевое теплоизоляционное покрытие",
+    features: ["Теплоизоляция", "Износостойкость", "Паропроницаемость"],
+    consumption: "1-1.5 л/м²",
+    image: categoryBuilding,
   },
 ];
 
@@ -78,7 +88,14 @@ const CategoryPage = () => {
 
         <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <Card key={product.id} className="group transition-shadow hover:shadow-lg">
+            <Card key={product.id} className="group overflow-hidden transition-shadow hover:shadow-lg">
+              <div className="aspect-square overflow-hidden bg-muted">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="h-full w-full object-contain p-4 transition-transform group-hover:scale-105"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="group-hover:text-primary">{product.name}</CardTitle>
                 <CardDescription>{product.description}</CardDescription>
