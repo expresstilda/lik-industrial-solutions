@@ -1,11 +1,32 @@
 import { Scissors, FileText, Truck, CheckCircle2, Building2, Users, Settings, Package, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 import workshopImg from "@/assets/sewing/workshop.jpg";
-import equipmentImg from "@/assets/sewing/equipment-1.jpg";
+import equipmentImg1 from "@/assets/sewing/equipment-1.jpg";
+import equipmentImg2 from "@/assets/sewing/equipment-2.jpg";
+import equipmentImg3 from "@/assets/sewing/equipment-3.jpg";
+import equipmentImg4 from "@/assets/sewing/equipment-4.jpg";
+import equipmentImg5 from "@/assets/sewing/equipment-5.jpg";
+import equipmentImg6 from "@/assets/sewing/equipment-6.jpg";
 import teamImg from "@/assets/sewing/team.jpg";
 import productsImg from "@/assets/sewing/products.jpg";
+
+const equipmentImages = [
+  { src: equipmentImg1, alt: "Швейное оборудование Jack" },
+  { src: equipmentImg2, alt: "Промышленная швейная машина" },
+  { src: equipmentImg3, alt: "Пуговичная машина Aurora" },
+  { src: equipmentImg4, alt: "Петельная машина" },
+  { src: equipmentImg5, alt: "Оверлок Jack" },
+  { src: equipmentImg6, alt: "Машина-автомат с лазером" },
+];
 
 const Sewing = () => {
   return (
@@ -138,11 +159,23 @@ const Sewing = () => {
             <h2 className="mb-8 text-center text-3xl font-bold">Оборудование</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="overflow-hidden rounded-xl">
-                <img 
-                  src={equipmentImg} 
-                  alt="Швейное оборудование Jack и Aurora" 
-                  className="h-full w-full object-cover"
-                />
+                <Carousel className="w-full" opts={{ loop: true }}>
+                  <CarouselContent>
+                    {equipmentImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <div className="aspect-[4/3] overflow-hidden rounded-xl">
+                          <img 
+                            src={image.src} 
+                            alt={image.alt} 
+                            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
               </div>
               <div className="space-y-4">
                 <Card>
