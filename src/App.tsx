@@ -16,29 +16,34 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename="/lik-industrial-solutions">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/category/:slug" element={<CategoryPage />} />
-            <Route path="/product/:slug" element={<ProductPage />} />
-            <Route path="/use-case/:slug" element={<UseCasePage />} />
-            <Route path="/o-kompanii" element={<About />} />
-            <Route path="/oem" element={<OEM />} />
-            <Route path="/shveynoe-proizvodstvo" element={<Sewing />} />
-            <Route path="/contacts" element={<Contacts />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  const basename = baseUrl === "/" ? "/" : baseUrl.replace(/\/$/, "");
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename={basename}>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/category/:slug" element={<CategoryPage />} />
+              <Route path="/product/:slug" element={<ProductPage />} />
+              <Route path="/use-case/:slug" element={<UseCasePage />} />
+              <Route path="/o-kompanii" element={<About />} />
+              <Route path="/oem" element={<OEM />} />
+              <Route path="/shveynoe-proizvodstvo" element={<Sewing />} />
+              <Route path="/contacts" element={<Contacts />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
